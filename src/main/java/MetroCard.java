@@ -1,10 +1,14 @@
 import exceptions.InsufficientBalanceException;
 import exceptions.InvalidAmountException;
 
+import java.util.Objects;
+
 public class MetroCard {
+    private String number;
     private double balance;
 
-    public MetroCard() {
+    public MetroCard(String mc1) {
+        this.number = mc1;
         this.balance = 0;
     }
 
@@ -27,5 +31,25 @@ public class MetroCard {
             throw new InsufficientBalanceException();
         }
         balance = balance - amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MetroCard metroCard = (MetroCard) o;
+
+        return Objects.equals(number, metroCard.number);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = number != null ? number.hashCode() : 0;
+        temp = Double.doubleToLongBits(balance);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }
