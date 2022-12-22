@@ -4,13 +4,11 @@ public class Transaction {
     private final MetroCard card;
     private final PassengerType passengerType;
     private final Station station;
-    private final boolean discountApplied;
 
-    public Transaction(MetroCard card, PassengerType passengerType, Station station, boolean discountApplied) {
+    public Transaction(MetroCard card, PassengerType passengerType, Station station) {
         this.card = card;
         this.passengerType = passengerType;
         this.station = station;
-        this.discountApplied = discountApplied;
     }
 
     public boolean isReturnJourney(List<Transaction> transactions) {

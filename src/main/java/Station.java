@@ -13,8 +13,8 @@ public class Station {
         return new Station("Airport");
     }
 
-    public void updateAmount(double charges) {
-        collection = collection + charges;
+    public void updateAmount(double amount) {
+        collection = collection + amount;
     }
 
     public double getCollection() {

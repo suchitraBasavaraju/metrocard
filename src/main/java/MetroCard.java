@@ -27,10 +27,14 @@ public class MetroCard {
         if(amount <0){
             throw new InvalidAmountException();
         }
-        if(amount > balance){
+        if(hasSufficient(amount)){
             throw new InsufficientBalanceException();
         }
         balance = balance - amount;
+    }
+
+    public boolean hasSufficient(double amount) {
+        return amount > balance;
     }
 
     @Override
