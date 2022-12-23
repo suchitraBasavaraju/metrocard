@@ -27,13 +27,13 @@ public class MetroCard {
         if(amount <0){
             throw new InvalidAmountException();
         }
-        if(hasSufficient(amount)){
+        if(isInSufficient(amount)){
             throw new InsufficientBalanceException();
         }
         balance = balance - amount;
     }
 
-    public boolean hasSufficient(double amount) {
+    public boolean isInSufficient(double amount) {
         return amount > balance;
     }
 
@@ -55,5 +55,12 @@ public class MetroCard {
         temp = Double.doubleToLongBits(balance);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    public MetroCard hasNumber(String cardNumber) {
+        if(Objects.equals(this.number, cardNumber)) {
+            return  this;
+        }
+        return  null;
     }
 }

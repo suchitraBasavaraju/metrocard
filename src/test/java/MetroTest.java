@@ -13,7 +13,7 @@ public class MetroTest {
         Metro metro = new Metro();
         Station central = Station.central();
 
-        metro.checkin(mc1,PassengerType.Adult, central);
+        metro.checkIn(mc1,PassengerType.ADULT, central);
 
         assertEquals(200,metro.collectionAt(central));
     }
@@ -25,7 +25,7 @@ public class MetroTest {
         Metro metro = new Metro();
         Station central = Station.central();
 
-        metro.checkin(mc1,PassengerType.SeniorCitizen,central);
+        metro.checkIn(mc1,PassengerType.SENIOR_CITIZEN,central);
 
         assertEquals(100,metro.collectionAt(central));
     }
@@ -37,7 +37,7 @@ public class MetroTest {
         Metro metro = new Metro();
         Station central = Station.central();
 
-        metro.checkin(mc1,PassengerType.kids,central);
+        metro.checkIn(mc1,PassengerType.KID,central);
 
         assertEquals(50,metro.collectionAt(central));
     }
@@ -50,7 +50,7 @@ public class MetroTest {
         Station airport = Station.airport();
         Station central = Station.central();
 
-        metro.checkin(mc1,PassengerType.Adult, airport);
+        metro.checkIn(mc1,PassengerType.ADULT, airport);
 
         assertEquals(200,metro.collectionAt(airport));
         assertEquals(0,metro.collectionAt(central));
@@ -64,8 +64,8 @@ public class MetroTest {
         Station airport = Station.airport();
         Station central = Station.central();
 
-        metro.checkin(mc1,PassengerType.Adult, airport);
-        metro.checkin(mc1,PassengerType.Adult, airport);
+        metro.checkIn(mc1,PassengerType.ADULT, airport);
+        metro.checkIn(mc1,PassengerType.ADULT, airport);
 
         assertEquals(300,metro.collectionAt(airport));
         assertEquals(100,metro.discountAt(airport));
@@ -88,12 +88,12 @@ public class MetroTest {
         Station airport = Station.airport();
         Station central = Station.central();
 
-        metro.checkin(mc1,PassengerType.Adult, central);
-        metro.checkin(mc2,PassengerType.SeniorCitizen, central);
-        metro.checkin(mc1,PassengerType.Adult, airport);
-        metro.checkin(mc3,PassengerType.kids, airport);
-        metro.checkin(mc4,PassengerType.Adult, airport);
-        metro.checkin(mc5,PassengerType.kids, airport);
+        metro.checkIn(mc1,PassengerType.ADULT, central);
+        metro.checkIn(mc2,PassengerType.SENIOR_CITIZEN, central);
+        metro.checkIn(mc1,PassengerType.ADULT, airport);
+        metro.checkIn(mc3,PassengerType.KID, airport);
+        metro.checkIn(mc4,PassengerType.ADULT, airport);
+        metro.checkIn(mc5,PassengerType.KID, airport);
 
         assertEquals(300,metro.collectionAt(central));
         assertEquals(0,metro.discountAt(central));
@@ -116,12 +116,12 @@ public class MetroTest {
         Station airport = Station.airport();
         Station central = Station.central();
 
-        metro.checkin(mc1,PassengerType.SeniorCitizen, airport);
-        metro.checkin(mc2,PassengerType.kids, airport);
-        metro.checkin(mc3,PassengerType.Adult, central);
-        metro.checkin(mc1,PassengerType.SeniorCitizen, central);
-        metro.checkin(mc3,PassengerType.Adult, airport);
-        metro.checkin(mc3,PassengerType.Adult, central);
+        metro.checkIn(mc1,PassengerType.SENIOR_CITIZEN, airport);
+        metro.checkIn(mc2,PassengerType.KID, airport);
+        metro.checkIn(mc3,PassengerType.ADULT, central);
+        metro.checkIn(mc1,PassengerType.SENIOR_CITIZEN, central);
+        metro.checkIn(mc3,PassengerType.ADULT, airport);
+        metro.checkIn(mc3,PassengerType.ADULT, central);
 
         assertEquals(457,metro.collectionAt(central));
         assertEquals(50,metro.discountAt(central));

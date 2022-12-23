@@ -1,8 +1,10 @@
 public class Station {
+    private final String stationName;
     private double collection;
     private double discount;
 
-    public Station(String central) {
+    private Station(String stationName) {
+        this.stationName = stationName;
     }
 
     static Station central() {
@@ -17,7 +19,7 @@ public class Station {
         collection = collection + amount;
     }
 
-    public double getCollection() {
+    public double collection() {
         return collection;
     }
 
@@ -25,7 +27,7 @@ public class Station {
         discount = discount + amount;
     }
 
-    public double getDiscount() {
+    public double discount() {
         return discount;
     }
 }

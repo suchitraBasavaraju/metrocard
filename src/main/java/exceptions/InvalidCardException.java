@@ -1,2 +1,4 @@
-package exceptions;public class InvalidCardException {
+package exceptions;
+
+public class InvalidCardException extends Exception {
 }
