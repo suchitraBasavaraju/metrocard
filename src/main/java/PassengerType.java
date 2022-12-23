@@ -1,5 +1,7 @@
 public enum PassengerType {
-    SeniorCitizen(100), Adult(200), kids(50);
+    SENIOR_CITIZEN(100),
+    ADULT(200),
+    KID(50);
 
     private final double charges;
 
