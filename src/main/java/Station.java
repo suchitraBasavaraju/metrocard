@@ -3,6 +3,15 @@ public class Station {
     private double collection;
     private double discount;
 
+    @Override
+    public String toString() {
+        return "Station{" +
+                "stationName='" + stationName + '\'' +
+                ", collection=" + collection +
+                ", discount=" + discount +
+                '}';
+    }
+
     private Station(String stationName) {
         this.stationName = stationName;
     }

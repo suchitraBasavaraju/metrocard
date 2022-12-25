@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -71,8 +72,20 @@ public class Main {
                 double centralCollection = metro.collectionAt(central);
                 double centralDiscount = metro.discountAt(central);
                 System.out.println("TOTAL_COLLECTION" + " CENTRAL " + centralCollection + " " + centralDiscount);
+                System.out.println("PASSENGER_TYPE_SUMMARY");
+                Map<PassengerType, Integer> passengerSummaryAtCentral = metro.passengersAt(central);
+                passengerSummaryAtCentral.forEach((key, value) -> print(key, value));
                 System.out.println("TOTAL_COLLECTION" + " AIRPORT " + airportCollection + " " + airportDiscount);
+                System.out.println("PASSENGER_TYPE_SUMMARY");
+                Map<PassengerType, Integer> passengerSummaryAtAirport = metro.passengersAt(airport);
+                passengerSummaryAtAirport.forEach((key, value) -> print(key, value));
             }
+        }
+    }
+
+    private static void print(PassengerType key, Integer value) {
+        if (value != 0) {
+            System.out.println(key + " " + value);
         }
     }
 
